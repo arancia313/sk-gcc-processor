@@ -6,7 +6,6 @@
 PSP_MODULE_INFO("sk-gcc", 0, 1, 1);
 
 int main(int argc, char *argv[]) {
-              void run_home(void) {
                             // Gotta wipe and init the screen this instant.
                             pspDebugScreenInit();
                             pspDebugScreenPrintf("****************************************************************\n");
@@ -31,9 +30,9 @@ int main(int argc, char *argv[]) {
                             while(1) {
                                           sceCtrlReadBufferPositive(&pad, 1);
                                           if (pad.Buttons & PSP_CTRL_TRIANGLE) {
-                                                                      pspDebugScreenPrintf("\n");
-                                                                      pspDebugScreenPrintf("Exiting..\n");
-                                                                      sceKernelExitGame();
+                                                        pspDebugScreenPrintf("\n");
+                                                        pspDebugScreenPrintf("Exiting..\n");
+                                                        sceKernelExitGame();
                                           };
                                           if (pad.Buttons & PSP_CTRL_CROSS) {
                                                         run_vm();
@@ -41,5 +40,4 @@ int main(int argc, char *argv[]) {
                                           };
                                           sceDisplayWaitVblankStart();
                             }
-              }
 }
