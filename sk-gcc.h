@@ -1,0 +1,8 @@
+#define MS0_SAVE_PATH "ms0:/PSP/sk-gcc"
+#define FLASH4_SAVE_PATH "flash4:/A3/sk-gcc"
+#define FLASH4_ROOTPATH "flash4:/"
+#define MS0_ROOTPATH "ms0:/"
+#define MS0_FLASH4_ROOTPATH "ms0:/flash4/"
+#define MS0_FLASH4_SAVE_PATH "ms0:/flash4/A3/sk-gcc"
+#define MS0_COMUNIC_FILE "ms0:/PSP/sk-gcc/stack.txt"
+#define FLASH4_COMUNIC_FILE "flash4:/A3/sk-gcc/stack.txt"
