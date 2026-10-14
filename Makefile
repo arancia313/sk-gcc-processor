@@ -1,10 +1,11 @@
-TARGET = sk-gcc-processor
+TARGET = sk-agcc
 OBJS = main.o vm.o
 
 CFLAGS = -O2 -G0 -Wall
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
 ASFLAGS = $(CFLAGS)
 EXTRA_TARGETS = EBOOT.PBP
+BUILD_PRX = 1
 PSP_EBOOT_TITLE = Arancia 3 SK-GCC Processor
 PSP_EBOOT_ICON = ICON0.PNG
 all:

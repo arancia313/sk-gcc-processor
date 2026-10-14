@@ -32,5 +32,18 @@ void run_vm(void) {
               if (fd >= 0) {char *content2 = "SK-GCC: log from SK-GCC Processor"; sceIoWrite(fd, content2, strlen(content2)); sceIoClose(fd);};
               pspDebugScreenPrintf("\n");
               pspDebugScreenPrintf("Starting VM..\n");
-
+              pspDebugScreenClear();
+              pspDebugScreenPrintf("Verifying presence of %s...\n", MS0_FLASH4_FILE);
+              int callfile = sceIoOpen(MS0_FLASH4_FILE, PSP_O_RDONLY, 0);
+              if (callfile < 0)
+              {
+                            pspDebugScreenPrintf("The file is non-existent: 0x%08X\n", callfile);
+                            pspDebugScreenPrintf("Aborting.\n");
+                            sceKernelDelayThread(1000000);
+                            main();
+              } else {
+                            pspDebugScreenPrintf("Virtual Machine has started.\n");
+                            pspDebugScreenPrintf("File called out: %s.\n", MS0_FLASH4_FILE);
+                            pspDebugScreenPrintf("Now Waiting for connections.\n");
+              };
 }

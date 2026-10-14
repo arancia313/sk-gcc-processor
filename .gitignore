@@ -2,4 +2,5 @@
 *.SFO
 *.o
 *.elf
+*.prx
 ./SK_GCC_PROC

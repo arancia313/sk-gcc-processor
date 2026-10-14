@@ -6,3 +6,4 @@
 #define MS0_FLASH4_SAVE_PATH "ms0:/flash4/A3/sk-gcc"
 #define MS0_COMUNIC_FILE "ms0:/PSP/sk-gcc/stack.txt"
 #define FLASH4_COMUNIC_FILE "flash4:/A3/sk-gcc/stack.txt"
+#define MS0_FLASH4_FILE "ms0:/flash4.txt"
