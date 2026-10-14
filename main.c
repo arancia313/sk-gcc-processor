@@ -35,6 +35,7 @@ int main(int argc, char *argv[]) {
                                                         sceKernelExitGame();
                                           };
                                           if (pad.Buttons & PSP_CTRL_CROSS) {
+                                                        sceKernelDelayThread(1000000);
                                                         run_vm();
 
                                           };

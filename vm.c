@@ -4,6 +4,7 @@
 #include <pspdebug.h>
 #include <pspdisplay.h>
 #include <pspctrl.h>
+#include <string.h>ks
 #include <sk-gcc.h>
 
 void run_vm(void) {
@@ -44,6 +45,15 @@ void run_vm(void) {
               } else {
                             pspDebugScreenPrintf("Virtual Machine has started.\n");
                             pspDebugScreenPrintf("File called out: %s.\n", MS0_FLASH4_FILE);
-                            pspDebugScreenPrintf("Now Waiting for connections.\n");
+                            sceIoClose(callfile);
+                            sceKernelDelayThread(1000000);
+                            pspDebugScreenClear();
+                            acorn("*****************************************************************\n", NULL);
+                            acorn("* Virtual Machine *                                             *\n", NULL);
+                            acorn("*******************                                             *\n", NULL);
+                            acorn("*                                                               *\n", NULL);
+                            acorn("* Virtual Machine is running.                                   *\n", NULL);
+                            acorn("*                                                               *\n", NULL);
+                            acorn("*****************************************************************\n", NULL);
               };
 }
