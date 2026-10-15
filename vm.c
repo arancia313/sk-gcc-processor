@@ -77,6 +77,9 @@ void run_vm(void) {
                             if (checkout < 0)
                             {
                                           acorn(" * Could not open called file. 0x%08X.\n", checkout);
+                                          sceKernelDelayThread(1000000);
+                                          errorms();
+
                             } else {
                                           acorn(" * Called: %s\n", MS0_FLASH4_FILE);
                                           sceIoClose(checkout);
@@ -85,6 +88,8 @@ void run_vm(void) {
                             if (checkout2 < 0)
                             {
                                           acorn(" * Could not open called file. 0x%08X.\n", checkout2);
+                                          sceKernelDelayThread(1000000);
+                                          errorms();
                             } else {
                                           acorn(" * Called: %s\n", MS0_COMUNIC_FILE);
                                           sceIoClose(checkout2);

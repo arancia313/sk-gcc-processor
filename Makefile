@@ -1,5 +1,6 @@
 TARGET = sk-agcc
-OBJS = main.o vm.o
+SKTARGET = sk-agcc
+OBJS = main.o vm.o error.o
 
 CFLAGS = -O2 -G0 -Wall
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
@@ -17,3 +18,5 @@ ripe:
 	$(Q)rm -rf ./SK_GCC_PROC
 PSPSDK = $(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build.mak
+include ../sk-gcc/include/general.mak
+skgcc  = $(sk_gcc)/lib/build.mak
