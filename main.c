@@ -3,7 +3,9 @@
 #include <pspkernel.h>
 #include <pspdebug.h>
 #include <pspctrl.h>
+#include <pspdisplay.h>
 #include <string.h>
+#include <pspgu.h>
 
 #include "./sk-gcc/lib/sk.h"
 #include "main.h"

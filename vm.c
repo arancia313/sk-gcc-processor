@@ -5,6 +5,7 @@
 #include <pspdisplay.h>
 #include <pspctrl.h>
 #include <string.h>
+#include <pspgu.h>
 // Prepare sk-gcc toolchain and main.h files!
 
 #include "./sk-gcc/lib/sk.h"
@@ -51,6 +52,15 @@ void run_vm(void) {
                             pspDebugScreenPrintf(" Virtual Machine has started.\n");
                             pspDebugScreenPrintf(" File called out: %s.\n", MS0_FLASH4_FILE);
                             sceIoClose(callfile);
+                            int checkhostfile = sceIoOpen(HOST_PRESENCEFILE, PSP_O_RDONLY, 0);
+                            if (checkhostfile < 0)
+                            {
+                                          acorn(" Host file is absent. 0x%08X", checkhostfile);
+                            } else
+                            {
+                                          acorn(" File called out: %s", HOST_PRESENCEFILE);
+                                          sceIoClose(checkhostfile);
+                            };
                             sceKernelDelayThread(1000000);
                             acornCls();
                             // Separator.
@@ -66,7 +76,8 @@ void run_vm(void) {
                             acorn(" *                                                               *\n", NULL);
                             acorn(" * If the VM is running on a testing environment like PSPLINK,   *\n", NULL);
                             acorn(" * The VM may sometimes interfere with connecting to another     *\n", NULL);
-                            acorn(" * unit, which is probably NOT what you want.                    *\n", NULL);
+                            acorn(" * unit, which is probably NOT what you want. It's still able to *\n", NULL);
+                            acorn(" * interact with PSPLINK's host0:/, though.                      *\n", NULL);
                             acorn(" *                                                               *\n", NULL);
                             acorn(" *****************************************************************\n", NULL);
                             // Separator.
@@ -80,7 +91,8 @@ void run_vm(void) {
                                           sceKernelDelayThread(1000000);
                                           errorms();
 
-                            } else {
+                            } else
+                            {
                                           acorn(" * Called: %s\n", MS0_FLASH4_FILE);
                                           sceIoClose(checkout);
                             };
@@ -90,9 +102,20 @@ void run_vm(void) {
                                           acorn(" * Could not open called file. 0x%08X.\n", checkout2);
                                           sceKernelDelayThread(1000000);
                                           errorms();
-                            } else {
+                            } else
+                            {
                                           acorn(" * Called: %s\n", MS0_COMUNIC_FILE);
                                           sceIoClose(checkout2);
                             };
+                            int checkout3 = sceIoOpen(HOST_PRESENCEFILE, PSP_O_RDONLY, 0);
+                            if (checkout3 < 0)
+                            {
+                                          acorn(" * Could not open called file. 0x%08X.\n", checkout3);
+                            } else
+                            {
+                                          acorn(" * Called: %s", HOST_PRESENCEFILE);
+                                          sceIoClose(checkout3);
+                            };
+
               };
 }

@@ -1,0 +1,4 @@
+host0:/host0.txt | In place |
+host0:/main.c    | In place |
+host0:/vm.c      | In place |
+host0:/error.c   | In place |
