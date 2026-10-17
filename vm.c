@@ -36,6 +36,16 @@ void run_vm(void) {
               sceIoMkdir(FLASH4_SAVE_PATH, 0777);
               fd = sceIoOpen(FLASH4_COMUNIC_FILE, PSP_O_WRONLY | PSP_O_CREAT | PSP_O_TRUNC, 0777);
               if (fd >= 0) {char *content2 = "SK-GCC: log from SK-GCC Processor"; sceIoWrite(fd, content2, strlen(content2)); sceIoClose(fd);};
+              fd = sceIoOpen("host0:/test.A3", PSP_O_WRONLY | PSP_O_CREAT | PSP_O_TRUNC, 0777);
+              if (fd < 0)
+              {
+                            return "ERROR: host0:/ could either be absent or not reachable.";
+              } else
+              {
+                            const char *content = "| Test. |\n";
+                            sceIoWrite(fd, content, strlen(content));
+              };
+              sceIoClose(fd);
               pspDebugScreenPrintf("\n");
               pspDebugScreenPrintf(" Starting VM..\n");
               pspDebugScreenClear();
@@ -48,17 +58,27 @@ void run_vm(void) {
                             pspDebugScreenPrintf(" Aborting.\n");
                             sceKernelDelayThread(1000000);
                             main();
-              } else {
+              } else
+              {
                             pspDebugScreenPrintf(" Virtual Machine has started.\n");
                             pspDebugScreenPrintf(" File called out: %s.\n", MS0_FLASH4_FILE);
                             sceIoClose(callfile);
                             int checkhostfile = sceIoOpen(HOST_PRESENCEFILE, PSP_O_RDONLY, 0);
                             if (checkhostfile < 0)
                             {
-                                          acorn(" Host file is absent. 0x%08X", checkhostfile);
+                                          acorn(" Host file is absent. 0x%08X, shifting to memory stick.\n", checkhostfile);
+                                          int checkoutms0file = sceIoOpen(HOST_MS0_PRESENCEFILE, PSP_O_RDONLY, 0);
+                                          if (checkoutms0file < 0)
+                                          {
+                                                        acorn("The file is non-exixtent: 0x%08X\n", checkoutms0file);
+                                          } else
+                                          {
+                                                        acorn("File called out: %s\n", HOST_MS0_PRESENCEFILE);
+                                                        sceIoClose(checkoutms0file);
+                                          };
                             } else
                             {
-                                          acorn(" File called out: %s", HOST_PRESENCEFILE);
+                                          acorn(" File called out: %s\n", HOST_PRESENCEFILE);
                                           sceIoClose(checkhostfile);
                             };
                             sceKernelDelayThread(1000000);
@@ -84,6 +104,7 @@ void run_vm(void) {
                             acorn("\n", NULL);
                             acorn(" Files called out for VM:\n", NULL);
                             acorn("\n", NULL);
+                            // Separator.
                             int checkout = sceIoOpen(MS0_FLASH4_FILE, PSP_O_RDONLY, 0);
                             if (checkout < 0)
                             {
@@ -116,6 +137,15 @@ void run_vm(void) {
                                           acorn(" * Called: %s", HOST_PRESENCEFILE);
                                           sceIoClose(checkout3);
                             };
-
+                            // Separator.
+                            int removefile = sceIoOpen("host0:/test.A3", PSP_O_RDONLY, 0);
+                            if (removefile < 0)
+                            {
+                                          return "File is absent.";
+                            } else
+                            {
+                                          sceIoClose(removefile);
+                                          sceIoRemove("host0:/test.A3");
+                            };
               };
 }
