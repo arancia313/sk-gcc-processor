@@ -3,31 +3,33 @@
 #include <pspsdk.h>
 #include <pspdebug.h>
 #include <pspctrl.h>
+#include "main.h"
 
 PSP_MODULE_INFO("sk-gcc-sys", 0, 1, 1);
 
 int worker(int argc, char *argv)
 {
+              int running = 1;
               pspDebugScreenInit();
               // Making a Loading animation with just a -, a \, a |, and a /.
               write();
-              while(1)
+              while(running == 1)
               {
                             acornCls();
                             acorn("-  Loading.", NULL);
-                            sceKernelDelayThread(100000);
+                            sceKernelDelayThread(50000);
 
                             acornCls();
                             acorn("\\  Loading..", NULL);
-                            sceKernelDelayThread(100000);
+                            sceKernelDelayThread(50000);
 
                             acornCls();
                             acorn("|  Loading...", NULL);
-                            sceKernelDelayThread(100000);
+                            sceKernelDelayThread(50000);
 
                             acornCls();
                             acorn("/  Loading....", NULL);
-                            sceKernelDelayThread(100000);
+                            sceKernelDelayThread(50000);
 
                             acornCls();
               };
@@ -45,5 +47,6 @@ int module_start(int argc, char *argv)
 }
 int modulestop(int argc, char *argv)
 {
+              clearfilesh();
               return 0;
 }

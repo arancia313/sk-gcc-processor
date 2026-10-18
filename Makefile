@@ -1,5 +1,5 @@
-TARGET = sk-agcc
-SKTARGET = sk-agcc
+TARGET = proc
+SKTARGET = proc
 OBJS = \
 	main.o \
 	vm.o \
@@ -11,6 +11,7 @@ ASFLAGS = $(CFLAGS)
 EXTRA_TARGETS = EBOOT.PBP
 BUILD_PRX = 1
 LIBS = -lpspgu -lpspdisplay -lpspdebug -lpspsdk
+PSP_FW_VERSION = 661
 PSP_EBOOT_TITLE = Arancia 3 SK-GCC Processor
 PSP_EBOOT_ICON = resources/ICON0.PNG
 all: build
@@ -20,12 +21,17 @@ all: build
 	@echo "Build Done."
 build:
 	$(Q)$(MAKE) -C sys
+	$(Q)$(MAKE) -C sys/ls
 ripe:
 	$(Q)$(MAKE) -C sys clean
+	$(Q)$(MAKE) -C sys/ls clean
 	$(Q)make clean
 	$(Q)rm -rf ./SK_GCC_PROC
 	$(Q)rm -rf int.A3
 	$(Q)rm -rf test.A3
+	$(Q)rm -rf sys/list/cv.A3
+	$(Q)rm -rf sys/ls/lshl.A3
+	$(Q)rm -rf sys/ls/lsmain.A3
 PSPSDK = $(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build.mak
 include ../sk-gcc/include/general.mak

@@ -1,7 +1,8 @@
 TARGET = sys
 OBJS = \
 	main.o \
-	write.o
+	write.o \
+	clear.o
 
 CFLAGS = -O2 -G0 -Wall
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
