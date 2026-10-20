@@ -8,13 +8,13 @@
 #include <pspiofilemgr.h>
 #include "../../sys/binarybills.h"
 
-PSP_MODULE_INFO("le_straodinarie", 0, 1, 1);
+PSP_MODULE_INFO("LSA3 Installer", 0, 1, 1);
 
 int module_start(int argc, char **argv)
 {
               pspDebugScreenInit();
-              acorn("  ** Le Straodinarie **              Arancia 3 Technologies inc.\n", NULL);
-              acorn("  *********************\n", NULL);
+              acorn("  ** LSA3 **                         Arancia 3 Technologies inc.\n", NULL);
+              acorn("  **********\n", NULL);
               acorn("\n", NULL);
               acorn("  Press X to begin the installation.\n", NULL);
               SceCtrlData pad;

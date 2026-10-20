@@ -1,8 +1,7 @@
-TARGET = lestraodinarie
+TARGET = a3LSinstaller
 OBJS = \
 	main.o
-
-CFLAGS = -Os -G0 -Wall
+CFLAGS = -O2 -G0 -Wall
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
 ASFLAGS = $(CFLAGS)
 BUILD_PRX = 1
