@@ -14,7 +14,10 @@ LIBS = -lpspgu -lpspdisplay -lpspdebug -lpspsdk
 PSP_FW_VERSION = 661
 PSP_EBOOT_TITLE = Arancia 3 SK-GCC Processor
 PSP_EBOOT_ICON = resources/ICON0.PNG
-all: build
+
+.PHONY: build ls0
+
+all: build ls0
 	$(Q) mkdir ./SK_GCC_PROC
 	$(Q) cp ./EBOOT.PBP SK_GCC_PROC/EBOOT.PBP
 	$(Q) cp ./PARAM.SFO SK_GCC_PROC/PARAM.SFO
@@ -22,9 +25,19 @@ all: build
 build:
 	$(Q)$(MAKE) -C sys
 	$(Q)$(MAKE) -C sys/ls
+	$(Q)$(MAKE) -C sys/ls/vunmenu
+	$(Q)$(MAKE) -C sys/ls/rmtool
+ls0:
+	$(Q)$(MAKE) -C sys/ls/ls0
+	$(Q)mkdir -p ls0/
+	$(Q)cp sys/ls/ls0/*.prx ls0/
+	$(Q)cp sys/ls/ls0/*.o ls0/
 ripe:
 	$(Q)$(MAKE) -C sys clean
 	$(Q)$(MAKE) -C sys/ls clean
+	$(Q)$(MAKE) -C sys/ls/vunmenu clean
+	$(Q)$(MAKE) -C sys/ls/rmtool clean
+	$(Q)$(MAKE) -C sys/ls/ls0 clean
 	$(Q)make clean
 	$(Q)rm -rf ./SK_GCC_PROC
 	$(Q)rm -rf int.A3
@@ -32,6 +45,7 @@ ripe:
 	$(Q)rm -rf sys/list/cv.A3
 	$(Q)rm -rf sys/ls/lshl.A3
 	$(Q)rm -rf sys/ls/lsmain.A3
+	$(Q)rm -rf ./ls0
 PSPSDK = $(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build.mak
 include ../sk-gcc/include/general.mak

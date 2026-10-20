@@ -30,7 +30,6 @@ int main(int argc, char *argv[]) {
                             pspDebugScreenPrintf(" *                                                              *\n");
                             pspDebugScreenPrintf(" * Triangle - Exit                                              *\n");
                             pspDebugScreenPrintf(" * Cross    - Run Virtual Machine                               *\n");
-                            pspDebugScreenPrintf(" * Circle   - Activate CELBLOCK Utility (Requires ARK-4 A3)     *\n");
                             pspDebugScreenPrintf(" *                                                              *\n");
                             pspDebugScreenPrintf(" ****************************************************************\n");
                             // Separator.
@@ -40,8 +39,9 @@ int main(int argc, char *argv[]) {
                             while(1) {
                                           sceCtrlReadBufferPositive(&pad, 1);
                                           if (pad.Buttons & PSP_CTRL_TRIANGLE) {
-                                                        pspDebugScreenPrintf("\n");
-                                                        pspDebugScreenPrintf(" Exiting..\n");
+                                                        acornCls();
+                                                        acorn("\n", NULL);
+                                                        acorn(" Exiting..\n", NULL);
                                                         sceKernelExitGame();
                                           };
                                           if (pad.Buttons & PSP_CTRL_CROSS) {

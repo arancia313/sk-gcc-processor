@@ -104,6 +104,8 @@ void run_vm(void) {
                             acorn("\n", NULL);
                             acorn(" Files called out for VM:\n", NULL);
                             acorn("\n", NULL);
+                            acorn(" ************************\n", NULL);
+                            acorn("\n", NULL);
                             // Separator.
                             int checkout = sceIoOpen(MS0_FLASH4_FILE, PSP_O_RDONLY, 0);
                             if (checkout < 0)
