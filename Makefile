@@ -4,8 +4,7 @@ OBJS = \
 	main.o \
 	vm.o \
 	error.o
-
-CFLAGS = -O2 -G0 -Wall
+CFLAGS = -O2 -G0 -Wall -I ./sk-gcc/lib/
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
 ASFLAGS = $(CFLAGS)
 EXTRA_TARGETS = EBOOT.PBP
@@ -14,10 +13,12 @@ LIBS = -lpspgu -lpspdisplay -lpspdebug -lpspsdk
 PSP_FW_VERSION = 661
 PSP_EBOOT_TITLE = Arancia 3 SK-GCC Processor
 PSP_EBOOT_ICON = resources/ICON0.PNG
+PSP_EBOOT_PIC1 = resources/PIC1.PNG
 
 .PHONY: build ls0
 
 all: build ls0
+	@echo "Packing Software to match structures."
 	$(Q) - mkdir ./SK_GCC_PROC
 	$(Q) - cp ./EBOOT.PBP SK_GCC_PROC/EBOOT.PBP
 	$(Q) - cp ./PARAM.SFO SK_GCC_PROC/PARAM.SFO

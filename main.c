@@ -7,7 +7,7 @@
 #include <string.h>
 #include <pspgu.h>
 
-#include "./sk-gcc/lib/sk.h"
+#include <sk.h>
 #include "main.h"
 
 PSP_MODULE_INFO("sk-gcc", 0, 1, 1);

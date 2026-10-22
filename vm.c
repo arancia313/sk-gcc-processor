@@ -8,7 +8,7 @@
 #include <pspgu.h>
 // Prepare sk-gcc toolchain and main.h files!
 
-#include "./sk-gcc/lib/sk.h"
+#include <sk.h>
 #include "main.h"
 
 void run_vm(void) {

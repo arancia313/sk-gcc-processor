@@ -6,10 +6,11 @@
 #include <pspctrl.h>
 #include <string.h>
 #include <pspgu.h>
+#include "error.h"
 
 // Prepare sk-gcc toolchain and main.h files!
 
-#include "./sk-gcc/lib/sk.h"
+#include <sk.h>
 #include "main.h"
 
 void errorms(void)
