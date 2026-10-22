@@ -8,5 +8,7 @@ CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
 ASFLAGS = $(CFLAGS)
 BUILD_PRX = 1
 
+all:
+	$(Q)$(MAKE) -C kd/lsplugins
 PSPSDK = $(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build_prx.mak

@@ -36,16 +36,6 @@ void run_vm(void) {
               sceIoMkdir(FLASH4_SAVE_PATH, 0777);
               fd = sceIoOpen(FLASH4_COMUNIC_FILE, PSP_O_WRONLY | PSP_O_CREAT | PSP_O_TRUNC, 0777);
               if (fd >= 0) {char *content2 = "SK-GCC: log from SK-GCC Processor"; sceIoWrite(fd, content2, strlen(content2)); sceIoClose(fd);};
-              fd = sceIoOpen("host0:/test.A3", PSP_O_WRONLY | PSP_O_CREAT | PSP_O_TRUNC, 0777);
-              if (fd < 0)
-              {
-                            return "ERROR: host0:/ could either be absent or not reachable.";
-              } else
-              {
-                            const char *content = "| Test. |\n";
-                            sceIoWrite(fd, content, strlen(content));
-              };
-              sceIoClose(fd);
               pspDebugScreenPrintf("\n");
               pspDebugScreenPrintf(" Starting VM..\n");
               pspDebugScreenClear();
@@ -70,10 +60,10 @@ void run_vm(void) {
                                           int checkoutms0file = sceIoOpen(HOST_MS0_PRESENCEFILE, PSP_O_RDONLY, 0);
                                           if (checkoutms0file < 0)
                                           {
-                                                        acorn("The file is non-exixtent: 0x%08X\n", checkoutms0file);
+                                                        acorn(" The file is non-exixtent: 0x%08X. VM will still work.\n", checkoutms0file);
                                           } else
                                           {
-                                                        acorn("File called out: %s\n", HOST_MS0_PRESENCEFILE);
+                                                        acorn(" File called out: %s\n", HOST_MS0_PRESENCEFILE);
                                                         sceIoClose(checkoutms0file);
                                           };
                             } else
@@ -138,16 +128,6 @@ void run_vm(void) {
                             {
                                           acorn(" * Called: %s", HOST_PRESENCEFILE);
                                           sceIoClose(checkout3);
-                            };
-                            // Separator.
-                            int removefile = sceIoOpen("host0:/test.A3", PSP_O_RDONLY, 0);
-                            if (removefile < 0)
-                            {
-                                          return "File is absent.";
-                            } else
-                            {
-                                          sceIoClose(removefile);
-                                          sceIoRemove("host0:/test.A3");
                             };
               };
 }

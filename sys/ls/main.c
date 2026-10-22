@@ -10,6 +10,23 @@
 
 PSP_MODULE_INFO("LSA3 Installer", 0, 1, 1);
 
+
+static inline int loadmod(const char *path)
+{
+              SceUID thing = sceKernelLoadModule(path, 0, NULL);
+              if (thing < 0)
+              {
+                            return thing;
+              };
+              int status = 0;
+              int start = sceKernelStartModule(thing, 0, NULL, &status, NULL);
+              if (start < 0)
+              {
+                            return start;
+              };
+              return thing;
+}
+
 int module_start(int argc, char **argv)
 {
               pspDebugScreenInit();
@@ -17,6 +34,8 @@ int module_start(int argc, char **argv)
               acorn("  **********\n", NULL);
               acorn("\n", NULL);
               acorn("  Press X to begin the installation.\n", NULL);
+              acorn("\n", NULL);
+              acorn("--------------------------------------------------------------------\n", NULL);
               SceCtrlData pad;
               while(1)
               {
@@ -49,12 +68,19 @@ int module_start(int argc, char **argv)
                                                         "Installation on host0:/.\n"
                                           );
                                                         binarybill();
-                                                        acorn("  Writing is complete.\n", NULL);
+                                                        acorn("  Writing is complete. Loading LSmenu.\n", NULL);
                                                         sceKernelDelayThread(5000000);
                                                         return 0;
                                           };
                                           }
 
+                            };
+                            if (pad.Buttons & PSP_CTRL_TRIANGLE)
+                            {
+                                          acornCls();
+                                          acorn("\n", NULL);
+                                          acorn(" Exiting...\n", NULL);
+                                          sceKernelExitGame();
                             };
               };
 }
