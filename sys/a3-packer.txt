@@ -1,0 +1,13 @@
+target: | sys
+objs:   | main.o                | In place | true |
+        | clear.o               | In place | true |
+        | write.o               | In place | true |
+
+include: pack expense (sk-gcc) -I:
+../sk-gcc/lib/build.mak
+-
+header-express:
+        | main.h                | In place | true |
+        | binarybills.h         | In place | true |
+includelist:
+        | ../sk-gcc/lib/sk.h    | In place | true |
