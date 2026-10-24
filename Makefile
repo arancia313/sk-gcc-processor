@@ -59,5 +59,5 @@ ripe:
 	$(Q)rm -rf ./ls0
 PSPSDK = $(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build.mak
-include ../sk-gcc/include/general.mak
+include ./sk-gcc/include/general.mak
 skgcc  = $(sk_gcc)/lib/build.mak
