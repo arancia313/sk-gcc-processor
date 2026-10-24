@@ -5,8 +5,7 @@
 #include <pspdisplay.h>
 #include <stdio.h>
 #include <string.h>
-// Ok, this is becoming way too long here.
-#include "../../../sk-gcc/lib/sk.h"
+#include <sk.h>
 
 int sys(int argc, char *argv)
 {

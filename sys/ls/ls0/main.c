@@ -3,8 +3,7 @@
 #include <pspdebug.h>
 #include <pspctrl.h>
 #include <pspdisplay.h>
-// Ok, this is becoming way too long here.
-#include "../../../sk-gcc/lib/sk.h"
+#include <sk.h>
 
 PSP_MODULE_INFO("ls0", 0, 1, 1);
 
