@@ -1,3 +1,4 @@
+# Uninstall LS whenever you want. Just hand me the process.
 TARGET = lsrmtool
 OBJS = \
 	main.o

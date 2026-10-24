@@ -1,3 +1,4 @@
+# FIRST WARNING: SECOND ARGUMENT OF MAIN SHOULD BE CHAR
 TARGET = main_plugin
 OBJS = \
 	main_lsplugin.o

@@ -1,3 +1,4 @@
+# Chew it and take it!!
 TARGET = proc
 SKTARGET = proc
 OBJS = \

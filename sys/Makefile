@@ -1,3 +1,5 @@
+# Are you on a Linux environment?! You will find yourself in
+# an incredibly fast workflow.
 TARGET = sys
 OBJS = \
 	main.o \

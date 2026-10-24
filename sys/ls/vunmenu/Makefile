@@ -1,3 +1,4 @@
+# Small Makefile? Do you think this is a STANDARD MALKEFILE?!
 TARGET = lsmenu
 OBJS = \
 	main.o

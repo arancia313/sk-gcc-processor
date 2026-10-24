@@ -1,3 +1,4 @@
+# Installer for LS. "Should be ready at any minute".
 TARGET = a3LSinstaller
 OBJS = \
 	main.o
