@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 // Really important.
-#include "../sk-gcc/lib/sk.h"
+#include <sk.h>
 
 void write(void)
 {

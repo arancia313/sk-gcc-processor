@@ -1,7 +1,7 @@
 TARGET = lsrmtool
 OBJS = \
 	main.o
-CFLAGS = -O2 -G0 -Wall
+CFLAGS = -O2 -G0 -Wall -I ../../../sk-gcc/lib/
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
 ASFLAGS = $(CFLAGS)
 BUILD_PRX = 1

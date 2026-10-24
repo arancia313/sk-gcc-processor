@@ -1,4 +1,4 @@
-#include "../../../sk-gcc/lib/sk.h"
+#include <sk.h>
 #include <pspkernel.h>
 #include <pspdebug.h>
 #include <pspsdk.h>

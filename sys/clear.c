@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 // Prepare SK-GCC file.
-#include "../sk-gcc/lib/sk.h"
+#include <sk.h>
 #include "main.h"
 
 int clearst(int argc, char **argv)
