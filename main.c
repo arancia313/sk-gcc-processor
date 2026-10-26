@@ -1,5 +1,6 @@
 // Minimalistic code for the Home.
-
+// and NO, i do not mean the stale minimalistic flat design
+// that companies are pushing.
 #include <pspkernel.h>
 #include <pspdebug.h>
 #include <pspctrl.h>
