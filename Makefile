@@ -1,11 +1,12 @@
 # Chew it and take it!!
+SK = $(SKGCC)
 TARGET = proc
 SKTARGET = proc
 OBJS = \
 	main.o \
 	vm.o \
 	error.o
-CFLAGS = -O2 -G0 -Wall -I ./sk-gcc/lib/
+CFLAGS = -O2 -G0 -Wall -I $(SKGCC)/lib/
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
 ASFLAGS = $(CFLAGS)
 EXTRA_TARGETS = EBOOT.PBP
@@ -60,5 +61,4 @@ ripe:
 	$(Q)rm -rf ./ls0
 PSPSDK = $(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build.mak
-SK = $(SKGCC)
 include $(SK)/include/general.mak
