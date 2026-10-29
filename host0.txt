@@ -4,3 +4,5 @@
 | host0:/error.c   | In place |
 | host0:/main.h    | In place |
 | host0:/error.h   | In place |
+| host0:/sys       | In place |
+| host0:/resources | In place |

@@ -16,23 +16,23 @@ PSP_MODULE_INFO("sk-gcc", 0, 1, 1);
 int main(int argc, char *argv[]) {
                             // Gotta wipe and init the screen this instant.
                             pspDebugScreenInit();
-                            pspDebugScreenPrintf("\n");
+                            acorn("\n", NULL);
                             // Separator.
-                            pspDebugScreenPrintf(" ****************************************************************\n");
-                            pspDebugScreenPrintf(" * Arancia 3 SK-GCC Processor *                           Home  *\n");
-                            pspDebugScreenPrintf(" ******************************                                 *\n");
-                            pspDebugScreenPrintf(" *                                                              *\n");
-                            pspDebugScreenPrintf(" * Welcome to the Arancia 3 SK-GCC Processor for PSP.           *\n");
-                            pspDebugScreenPrintf(" * It requires ARK-4 A3 in order to run properly.               *\n");
-                            pspDebugScreenPrintf(" *                                                              *\n");
-                            pspDebugScreenPrintf(" ****************************************************************\n");
-                            pspDebugScreenPrintf(" * Instructions *                                               *\n");
-                            pspDebugScreenPrintf(" ****************                                               *\n");
-                            pspDebugScreenPrintf(" *                                                              *\n");
-                            pspDebugScreenPrintf(" * Triangle - Exit                                              *\n");
-                            pspDebugScreenPrintf(" * Cross    - Run Virtual Machine                               *\n");
-                            pspDebugScreenPrintf(" *                                                              *\n");
-                            pspDebugScreenPrintf(" ****************************************************************\n");
+                            acorn(" ****************************************************************\n", NULL);
+                            acorn(" * Arancia 3 SK-GCC Processor *                           Home  *\n", NULL);
+                            acorn(" ******************************                                 *\n", NULL);
+                            acorn(" *                                                              *\n", NULL);
+                            acorn(" * Welcome to the Arancia 3 SK-GCC Processor for PSP.           *\n", NULL);
+                            acorn(" * It requires ARK-4 A3 in order to run properly.               *\n", NULL);
+                            acorn(" *                                                              *\n", NULL);
+                            acorn(" ****************************************************************\n", NULL);
+                            acorn(" * Instructions *                                               *\n", NULL);
+                            acorn(" ****************                                               *\n", NULL);
+                            acorn(" *                                                              *\n", NULL);
+                            acorn(" * Triangle - Exit                                              *\n", NULL);
+                            acorn(" * Cross    - Run Virtual Machine                               *\n", NULL);
+                            acorn(" *                                                              *\n", NULL);
+                            acorn(" ****************************************************************\n", NULL);
                             // Separator.
                             SceCtrlData pad;
                             sceCtrlSetSamplingCycle(0);
