@@ -10,4 +10,4 @@ header-express:
         | main.h                | In place | true |
         | binarybills.h         | In place | true |
 includelist:
-        | ../sk-gcc/lib/sk.h    | In place | true |
+        | $SKGCC/lib/sk.h       | In place | true |

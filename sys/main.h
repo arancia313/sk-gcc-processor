@@ -1,7 +1,7 @@
 #include <pspkernel.h>
 #include <pspsdk.h>
 #include <pspdebug.h>
-#include "../sk-gcc/lib/sk.h"
+#include <sk.h>
 
 static inline void clearfilesh(void)
 {
