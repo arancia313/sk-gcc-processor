@@ -50,8 +50,8 @@ void run_vm(void) {
                             main();
               } else
               {
-                            pspDebugScreenPrintf(" Virtual Machine has started.\n");
-                            pspDebugScreenPrintf(" File called out: %s.\n", MS0_FLASH4_FILE);
+                            acorn(" Virtual Machine has started.\n", NULL);
+                            acorn(" File called out: %s.\n", MS0_FLASH4_FILE);
                             sceIoClose(callfile);
                             int checkhostfile = sceIoOpen(HOST_PRESENCEFILE, PSP_O_RDONLY, 0);
                             if (checkhostfile < 0)
