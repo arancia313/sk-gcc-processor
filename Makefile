@@ -24,6 +24,9 @@ all: build ls0
 	$(Q) - mkdir ./SK_GCC_PROC
 	$(Q) - cp ./EBOOT.PBP SK_GCC_PROC/EBOOT.PBP
 	$(Q) - cp ./PARAM.SFO SK_GCC_PROC/PARAM.SFO
+	$(Q) - mkdir ./dist
+	$(Q) - cp -r ./SK_GCC_PROC dist/
+	$(Q) - cp -r ./ls0 dist/
 	@echo "Build Done."
 build:
 	$(Q)$(MAKE) -C sys
@@ -59,6 +62,7 @@ ripe:
 	$(Q)rm -rf sys/ls/lshl.A3
 	$(Q)rm -rf sys/ls/lsmain.A3
 	$(Q)rm -rf ./ls0
+	$(Q)rm -rf ./dist
 PSPSDK = $(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build.mak
 include $(SK)/include/general.mak
