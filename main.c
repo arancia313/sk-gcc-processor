@@ -31,24 +31,32 @@ int main(int argc, char *argv[]) {
                             acorn(" *                                                              *\n", NULL);
                             acorn(" * Triangle - Exit                                              *\n", NULL);
                             acorn(" * Cross    - Run Virtual Machine                               *\n", NULL);
+                            acorn(" * Circle   - Activate host0:/                                  *\n", NULL);
                             acorn(" *                                                              *\n", NULL);
                             acorn(" ****************************************************************\n", NULL);
                             // Separator.
                             SceCtrlData pad;
                             sceCtrlSetSamplingCycle(0);
                             sceCtrlSetSamplingMode(PSP_CTRL_MODE_ANALOG);
-                            while(1) {
+                            while(1)
+                            {
                                           sceCtrlReadBufferPositive(&pad, 1);
-                                          if (pad.Buttons & PSP_CTRL_TRIANGLE) {
+                                          if (pad.Buttons & PSP_CTRL_TRIANGLE)
+                                          {
                                                         acornCls();
                                                         acorn("\n", NULL);
                                                         acorn(" Exiting..\n", NULL);
                                                         sceKernelExitGame();
                                           };
-                                          if (pad.Buttons & PSP_CTRL_CROSS) {
+                                          if (pad.Buttons & PSP_CTRL_CROSS)
+                                          {
                                                         sceKernelDelayThread(1000000);
                                                         run_vm();
 
+                                          };
+                                          if (pad.Buttons & PSP_CTRL_CIRCLE)
+                                          {
+                                                        ch0f();
                                           };
                                           sceDisplayWaitVblankStart();
                             }

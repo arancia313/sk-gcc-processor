@@ -36,4 +36,16 @@ void errorhost(void)
               acorn(" Aborting.\n", NULL);
               sceKernelDelayThread(5000000);
               main();
+};
+
+void savedata(void)
+{
+              acornCls();
+              acorn("\n", NULL);
+              acorn(" Whoops! The sk-gcc data appears to have been corrupted!\n", NULL);
+              acorn(" Use Le Straodinarie to fix the corrupted data and re-install sk-gcc on your ms0:/.\n", NULL);
+              acorn("\n", NULL);
+              acorn(" Aborting.\n", NULL);
+              sceKernelDelayThread(5000000);
+              main();
 }

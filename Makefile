@@ -5,7 +5,8 @@ SKTARGET = proc
 OBJS = \
 	main.o \
 	vm.o \
-	error.o
+	error.o \
+	ch0f.o
 CFLAGS = -O2 -G0 -Wall -I $(SK)/lib/
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
 ASFLAGS = $(CFLAGS)
