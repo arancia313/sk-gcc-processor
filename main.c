@@ -13,7 +13,8 @@
 
 PSP_MODULE_INFO("sk-gcc", 0, 1, 1);
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
                             // Gotta wipe and init the screen this instant.
                             pspDebugScreenInit();
                             acorn("\n", NULL);
@@ -32,6 +33,7 @@ int main(int argc, char *argv[]) {
                             acorn(" * Triangle - Exit                                              *\n", NULL);
                             acorn(" * Cross    - Run Virtual Machine                               *\n", NULL);
                             acorn(" * Circle   - Activate host0:/                                  *\n", NULL);
+                            acorn(" * Square   - Go to SK-GCC menu                                 *\n", NULL);
                             acorn(" *                                                              *\n", NULL);
                             acorn(" ****************************************************************\n", NULL);
                             // Separator.
@@ -57,6 +59,14 @@ int main(int argc, char *argv[]) {
                                           if (pad.Buttons & PSP_CTRL_CIRCLE)
                                           {
                                                         ch0f();
+                                          };
+                                          if (pad.Buttons & PSP_CTRL_SQUARE)
+                                          {
+                                                        acornCls();
+                                                        acorn("\n", NULL);
+                                                        acorn(" Loading sk-gcc menu...", NULL);
+                                                        sceKernelDelayThread(1000000);
+                                                        skmenu();
                                           };
                                           sceDisplayWaitVblankStart();
                             }
