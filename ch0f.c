@@ -20,5 +20,12 @@ void ch0f(void)
               if (checkouthost0f < 0)
               {
                             errorhost();
-              };
+              } else
+              {
+                            acorn(" Activating host0:/..\n", NULL);
+                            int host0 = 1;
+                            acorn(" Activation complete.\n", NULL);
+                            sceKernelDelayThread(1000000);
+                            main();
+              }
 }
